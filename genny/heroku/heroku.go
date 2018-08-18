@@ -60,6 +60,7 @@ func build(opts *Options) (*genny.Generator, error) {
 		g.Command(exec.Command("heroku", "config:set", fmt.Sprintf("%s=%s", k, v)))
 	}
 
+	fmt.Println("### opts.Addons ->", opts.Addons)
 	for _, a := range opts.Addons {
 		if a.Level == "" {
 			continue

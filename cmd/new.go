@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"context"
+	"fmt"
 	"strings"
 
 	"github.com/gobuffalo/buffalo-heroku/genny/heroku"
@@ -31,7 +32,17 @@ var newCmd = &cobra.Command{
 		}
 
 		opts := newOptions.Options
-		opts.Addons = her.DefaultAddons
+		var addons her.Addons
+		for _, a := range her.DefaultAddons {
+			key := "addon:" + a.Name
+			v, err := cmd.Flags().GetString(key)
+			if err != nil {
+				return errors.WithStack(err)
+			}
+			a.Level = v
+			addons = append(addons, a)
+		}
+		opts.Addons = addons
 		gg, err := heroku.New(opts)
 		if err != nil {
 			return errors.WithStack(err)
@@ -54,5 +65,8 @@ func init() {
 	newCmd.Flags().StringVarP(&newOptions.Environment, "environment", "e", "production", "the environment to run the application in")
 	newCmd.Flags().BoolVar(&newOptions.Auth, "auth", false, "log into heroku from the cli")
 	newCmd.Flags().BoolVarP(&newOptions.dryRun, "dry-run", "d", false, "run the generator without creating files or running commands")
+	for _, a := range her.DefaultAddons {
+		newCmd.Flags().String("addon:"+a.Name, a.Available[0], fmt.Sprintf("options: %s", strings.Join(a.Available, ", ")))
+	}
 	herokuCmd.AddCommand(newCmd)
 }
