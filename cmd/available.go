@@ -14,7 +14,7 @@ var availableCmd = &cobra.Command{
 	Short: "a list of available buffalo plugins",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		plugs := plugins.Commands{
-			{Name: generateCmd.Use, BuffaloCommand: "generate", Description: generateCmd.Short, Aliases: generateCmd.Aliases},
+			{Name: herokuCmd.Use, BuffaloCommand: "root", Description: herokuCmd.Short, Aliases: herokuCmd.Aliases},
 		}
 		return json.NewEncoder(os.Stdout).Encode(plugs)
 	},

@@ -1,5 +1,11 @@
 package heroku
 
+import "github.com/gobuffalo/buffalo-heroku/heroku"
+
 type Options struct {
-	// add your stuff here
+	AppName     string
+	Environment string
+	Auth        bool
+	DynoLevel   string
+	Addons      heroku.Addons
 }
