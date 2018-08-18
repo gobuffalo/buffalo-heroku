@@ -24,6 +24,10 @@ var destroyCmd = &cobra.Command{
 		if err != nil {
 			return errors.WithStack(err)
 		}
+		name := app.Name.String()
+		if name == "" {
+			return errors.New("this does not appear to be a Heroku application")
+		}
 		c := exec.Command("heroku", "destroy", "--confirm", app.Name.String())
 		c.Stderr = os.Stderr
 		c.Stdout = os.Stdout
