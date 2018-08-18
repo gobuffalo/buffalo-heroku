@@ -3,6 +3,7 @@ package cmd
 import (
 	"context"
 	"fmt"
+	"os/exec"
 	"strings"
 
 	"github.com/gobuffalo/buffalo-heroku/genny/heroku"
@@ -54,6 +55,11 @@ var newCmd = &cobra.Command{
 			return errors.WithStack(err)
 		}
 		r.With(g)
+
+		r.WithRun(func(r *genny.Runner) error {
+			cmd := exec.Command("heroku", "open")
+			return r.Exec(cmd)
+		})
 
 		return r.Run()
 	},

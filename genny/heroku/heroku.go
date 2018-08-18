@@ -145,7 +145,6 @@ func build(opts *Options) (*genny.Generator, error) {
 	})
 	g.Command(exec.Command("heroku", "dyno:type", opts.DynoLevel))
 	g.Command(exec.Command("heroku", "config"))
-	g.Command(exec.Command("heroku", "open"))
 	return g, nil
 }
 
