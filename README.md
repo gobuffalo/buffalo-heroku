@@ -38,6 +38,22 @@ There are a lot of flags and options you can use to tweak the Heroku app you cre
 
 ```bash
 $ buffalo heroku new -h
+
+creates a new heroku application
+
+Usage:
+  buffalo-heroku heroku new [flags]
+
+Flags:
+      --addon:heroku-postgresql string   options: hobby-dev, hobby-basic, standard-0 (default "hobby-dev")
+      --addon:heroku-redis string        options: hobby-dev (default "hobby-dev")
+      --addon:sendgrid string            options: starter (default "starter")
+  -a, --app-name string                  the name of the heroku app to deploy
+      --auth                             log into heroku from the cli
+  -d, --dry-run                          run the generator without creating files or running commands
+  -l, --dyno-level string                free, hobby, standard-1x, standard-2x (default "free")
+  -e, --environment string               the environment to run the application in (default "production")
+  -h, --help                             help for new
 ```
 
 ## Deploying
