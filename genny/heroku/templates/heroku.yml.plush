@@ -1,9 +1,0 @@
-build:
-  docker:
-    web: Dockerfile
-<%= if (app.WithPop) { %>
-release:
-  command:
-    - /bin/app migrate
-  image: web
-<% } %>

@@ -61,21 +61,29 @@ func build(opts *Options) (*genny.Generator, error) {
 	}
 
 	for _, a := range opts.Addons {
-		if a.Level == "" {
+		if len(a.Level) == 0 {
 			continue
 		}
 		if !isValid(a.Level, a.Available) {
 			return g, errors.Errorf("%s is not a valid level for %s", a.Level, a.Name)
 		}
-		g.Command(exec.Command("heroku", "addons:create", fmt.Sprintf("%s:%s", a.Name, a.Level)))
-		if a.Name == "sendgrid" {
-			g.RunFn(setupSendgrid)
-		}
+		func(a heroku.Addon) {
+			g.RunFn(func(r *genny.Runner) error {
+				r.Logger.Info("addon:started", a)
+				if err := r.Exec(exec.Command("heroku", "addons:create", fmt.Sprintf("%s:%s", a.Name, a.Level))); err != nil {
+					return errors.WithStack(err)
+				}
+				r.Logger.Info("addon:finished", a)
+				if a.Name == "sendgrid" {
+					return setupSendgrid(r)
+				}
+				return nil
+			})
+		}(a)
 	}
 	g.RunFn(func(r *genny.Runner) error {
-		res := r.Results()
 		var files []string
-		for _, f := range res.Files {
+		for _, f := range r.Disk.Files() {
 			files = append(files, f.Name())
 		}
 		if len(files) > 0 {

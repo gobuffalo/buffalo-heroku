@@ -72,7 +72,7 @@ func init() {
 	newCmd.Flags().BoolVar(&newOptions.Auth, "auth", false, "log into heroku from the cli")
 	newCmd.Flags().BoolVarP(&newOptions.dryRun, "dry-run", "d", false, "run the generator without creating files or running commands")
 	for _, a := range her.DefaultAddons {
-		newCmd.Flags().String("addon:"+a.Name, a.Available[0], fmt.Sprintf("options: %s", strings.Join(a.Available, ", ")))
+		newCmd.Flags().String("addon:"+a.Name, a.Level, fmt.Sprintf("options: %s", strings.Join(a.Available, ", ")))
 	}
 	herokuCmd.AddCommand(newCmd)
 }
