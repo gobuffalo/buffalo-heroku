@@ -36,6 +36,6 @@ func init() {
 	branch := string(o)
 	branch = strings.TrimSpace(branch)
 	deployCmd.Flags().StringVarP(&deployOptions.Name, "name", "n", "heroku", "the git end point to push to")
-	deployCmd.Flags().StringVarP(&deployOptions.Branch, "branch", "b", branch, "the name of the branch to depoly")
+	deployCmd.Flags().StringVarP(&deployOptions.Branch, "branch", "b", branch, "the name of the branch to deploy")
 	herokuCmd.AddCommand(deployCmd)
 }
