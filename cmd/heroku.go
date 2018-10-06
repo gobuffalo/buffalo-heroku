@@ -7,7 +7,7 @@ import (
 // herokuCmd represents the heroku command
 var herokuCmd = &cobra.Command{
 	Use:   "heroku",
-	Short: "description about this plugin",
+	Short: "helps with heroku setup and deployment for buffalo applications",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		return nil
 	},
