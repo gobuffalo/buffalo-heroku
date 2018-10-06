@@ -10,7 +10,7 @@ import (
 // versionCmd represents the version command
 var versionCmd = &cobra.Command{
 	Use:   "version",
-	Short: "current version of heroku",
+	Short: "current version of heroku plugin",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		fmt.Println("heroku", heroku.Version)
 		return nil
