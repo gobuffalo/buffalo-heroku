@@ -7,7 +7,7 @@ import (
 	"strings"
 	"time"
 
-	bmeta "github.com/gobuffalo/buffalo/meta"
+	bmeta "github.com/gobuffalo/meta"
 	"github.com/markbates/inflect"
 )
 

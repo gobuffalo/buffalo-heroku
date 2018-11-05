@@ -11,8 +11,8 @@ import (
 
 	"github.com/gobuffalo/buffalo-heroku/genny/config"
 	"github.com/gobuffalo/buffalo-heroku/heroku"
-	"github.com/gobuffalo/buffalo/meta"
 	"github.com/gobuffalo/genny"
+	"github.com/gobuffalo/meta"
 	"github.com/gobuffalo/x/defaults"
 	"github.com/gobuffalo/x/randx"
 	"github.com/pkg/errors"
