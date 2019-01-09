@@ -5,9 +5,9 @@ import (
 	"strings"
 
 	"github.com/gobuffalo/genny"
-	"github.com/gobuffalo/genny/movinglater/plushgen"
 	"github.com/gobuffalo/packr"
 	"github.com/gobuffalo/plush"
+	"github.com/gobuffalo/plushgen"
 	"github.com/pkg/errors"
 
 	br "github.com/gobuffalo/buffalo/runtime"

@@ -41,7 +41,7 @@ Thank you to the following **GIANTS**:
 
 * [github.com/gobuffalo/genny/movinglater/gotools/gomods](https://godoc.org/github.com/gobuffalo/genny/movinglater/gotools/gomods)
 
-* [github.com/gobuffalo/genny/movinglater/plushgen](https://godoc.org/github.com/gobuffalo/genny/movinglater/plushgen)
+* [github.com/gobuffalo/plushgen](https://godoc.org/github.com/gobuffalo/plushgen)
 
 * [github.com/gobuffalo/github_flavored_markdown](https://godoc.org/github.com/gobuffalo/github_flavored_markdown)
 
