@@ -5,7 +5,7 @@ import (
 
 	"github.com/gobuffalo/buffalo-heroku/genny/config"
 	"github.com/gobuffalo/genny"
-	"github.com/gobuffalo/genny/movinglater/gotools"
+	"github.com/gobuffalo/gogen"
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
 )
@@ -34,7 +34,7 @@ var configCmd = &cobra.Command{
 		}
 		r.With(g)
 
-		g, err = gotools.GoFmt(r.Root)
+		g, err = gogen.Fmt(r.Root)
 		if err != nil {
 			return errors.WithStack(err)
 		}
