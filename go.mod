@@ -1,14 +1,16 @@
 module github.com/gobuffalo/buffalo-heroku
 
 require (
-	github.com/gobuffalo/buffalo v0.13.4
-	github.com/gobuffalo/buffalo-plugins v1.6.9
-	github.com/gobuffalo/genny v0.0.0-20181109163038-9539921b620f
-	github.com/gobuffalo/meta v0.0.0-20181109154556-f76929ccd5fa
-	github.com/gobuffalo/packr v1.19.0
-	github.com/gobuffalo/plush v3.7.22+incompatible
-	github.com/gobuffalo/x v0.0.0-20181025192250-1ef645d63fe8
+	github.com/gobuffalo/buffalo v0.14.0
+	github.com/gobuffalo/buffalo-plugins v1.13.0
+	github.com/gobuffalo/genny v0.0.0-20190219203444-c95082806342
+	github.com/gobuffalo/gogen v0.0.0-20190224213239-1c6076128bbc
+	github.com/gobuffalo/meta v0.0.0-20190207205153-50a99e08b8cf
+	github.com/gobuffalo/packr v1.22.0
+	github.com/gobuffalo/plush v3.7.33+incompatible
+	github.com/gobuffalo/plushgen v0.0.0-20190224160205-347ea233336e
+	github.com/gobuffalo/x v0.0.0-20190224155809-6bb134105960
 	github.com/markbates/inflect v1.0.4
-	github.com/pkg/errors v0.8.0
+	github.com/pkg/errors v0.8.1
 	github.com/spf13/cobra v0.0.3
 )
