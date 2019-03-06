@@ -68,6 +68,7 @@ var newCmd = &cobra.Command{
 func init() {
 	newCmd.Flags().StringVarP(&newOptions.DynoLevel, "dyno-level", "l", "free", strings.Join(her.DynoLevels, ", "))
 	newCmd.Flags().StringVarP(&newOptions.AppName, "app-name", "a", "", "the name of the heroku app to deploy")
+	newCmd.Flags().StringVarP(&newOptions.Region, "region", "r", "us", "heroku region to deploy heroku app")
 	newCmd.Flags().StringVarP(&newOptions.Environment, "environment", "e", "production", "the environment to run the application in")
 	newCmd.Flags().BoolVar(&newOptions.Auth, "auth", false, "log into heroku from the cli")
 	newCmd.Flags().BoolVarP(&newOptions.dryRun, "dry-run", "d", false, "run the generator without creating files or running commands")
