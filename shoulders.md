@@ -17,6 +17,8 @@ Thank you to the following **GIANTS**:
 
 * [github.com/gobuffalo/packr](https://godoc.org/github.com/gobuffalo/packr)
 
+* [github.com/gobuffalo/packr/v2](https://godoc.org/github.com/gobuffalo/packr/v2)
+
 * [github.com/gobuffalo/plush](https://godoc.org/github.com/gobuffalo/plush)
 
 * [github.com/gobuffalo/plushgen](https://godoc.org/github.com/gobuffalo/plushgen)
