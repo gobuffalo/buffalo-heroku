@@ -48,7 +48,7 @@ func build(opts *Options) (*genny.Generator, error) {
 	}
 	g.RunFn(installHerokuCLI)
 
-	g.Command(exec.Command("heroku", "create", "--manifest", opts.AppName))
+	g.Command(exec.Command("heroku", "create", "--manifest", opts.AppName, "--region", opts.Region))
 	g.Command(exec.Command("heroku", "stack:set", "container"))
 
 	configs := map[string]string{
