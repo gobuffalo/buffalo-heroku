@@ -11,10 +11,9 @@ import (
 
 	"github.com/gobuffalo/buffalo-heroku/genny/config"
 	"github.com/gobuffalo/buffalo-heroku/heroku"
+	"github.com/gobuffalo/buffalo-heroku/internal/takeon/github.com/gobuffalo/x/randx"
 	"github.com/gobuffalo/genny"
 	"github.com/gobuffalo/meta"
-	"github.com/gobuffalo/x/defaults"
-	"github.com/gobuffalo/x/randx"
 	"github.com/pkg/errors"
 )
 
@@ -51,8 +50,12 @@ func build(opts *Options) (*genny.Generator, error) {
 	g.Command(exec.Command("heroku", "create", "--manifest", opts.AppName, "--region", opts.Region))
 	g.Command(exec.Command("heroku", "stack:set", "container"))
 
+	env := opts.Environment
+	if len(env) == 0 {
+		env = "production"
+	}
 	configs := map[string]string{
-		"GO_ENV":         defaults.String(opts.Environment, "production"),
+		"GO_ENV":         env,
 		"SESSION_SECRET": randx.String(100),
 	}
 
