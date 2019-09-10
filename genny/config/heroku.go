@@ -5,7 +5,7 @@ import (
 	"strings"
 
 	"github.com/gobuffalo/genny"
-	"github.com/gobuffalo/packr"
+	"github.com/gobuffalo/packr/v2"
 	"github.com/gobuffalo/plush"
 	"github.com/gobuffalo/plushgen"
 	"github.com/pkg/errors"
@@ -20,7 +20,7 @@ func New(opts *Options) (*genny.Generator, error) {
 		return g, errors.WithStack(err)
 	}
 
-	if err := g.Box(packr.NewBox("../config/templates")); err != nil {
+	if err := g.Box(packr.New("github.com/gobuffalo/buffalo-docker/genny/config", "../config/templates")); err != nil {
 		return g, errors.WithStack(err)
 	}
 	ctx := plush.NewContext()
