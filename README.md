@@ -17,6 +17,12 @@ It assumes you are using Docker to deploy to Heroku. It is recommended you read 
 $ go get -u -v github.com/gobuffalo/buffalo-heroku
 ```
 
+Or, if you have `GO111MODULE=on`
+
+```bash
+buffalo plugins install github.com/gobuffalo/buffalo-heroku
+```
+
 ## Help
 
 ```bash
