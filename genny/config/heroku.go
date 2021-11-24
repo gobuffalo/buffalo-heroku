@@ -2,16 +2,20 @@ package config
 
 import (
 	"bytes"
+	"embed"
+	"io/fs"
 	"strings"
 
-	"github.com/gobuffalo/genny"
-	"github.com/gobuffalo/packr/v2"
-	"github.com/gobuffalo/plush"
-	"github.com/gobuffalo/plushgen"
+	"github.com/gobuffalo/genny/v2"
+	"github.com/gobuffalo/genny/v2/plushgen"
+	"github.com/gobuffalo/plush/v4"
 	"github.com/pkg/errors"
 
 	br "github.com/gobuffalo/buffalo/runtime"
 )
+
+//go:embed templates
+var templates embed.FS
 
 func New(opts *Options) (*genny.Generator, error) {
 	g := genny.New()
@@ -20,7 +24,11 @@ func New(opts *Options) (*genny.Generator, error) {
 		return g, errors.WithStack(err)
 	}
 
-	if err := g.Box(packr.New("github.com/gobuffalo/buffalo-docker/genny/config", "../config/templates")); err != nil {
+	sub, err := fs.Sub(templates, "templates")
+	if err != nil {
+		return g, errors.WithStack(err)
+	}
+	if err := g.FS(sub); err != nil {
 		return g, errors.WithStack(err)
 	}
 	ctx := plush.NewContext()

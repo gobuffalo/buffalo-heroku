@@ -8,12 +8,11 @@ import (
 	"time"
 
 	bmeta "github.com/gobuffalo/meta"
-	"github.com/markbates/inflect"
 )
 
 type App struct {
 	context.Context
-	Name        inflect.Name
+	Name        string
 	Addons      Addons
 	Environment string
 	DynoLevel   string
@@ -32,9 +31,9 @@ func New(ctx context.Context, root string) (*App, error) {
 		Addons:      DefaultAddons,
 	}
 
-	if app.Name.String() == "" {
+	if app.Name == "" {
 		n, e := herokuNameFromGit(app)
-		app.Name = inflect.Name(n)
+		app.Name = n
 		app.Existing = e
 	}
 
