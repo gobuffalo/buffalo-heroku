@@ -1,4 +1,4 @@
-<p align="center"><img src="https://github.com/gobuffalo/buffalo/blob/master/logo.svg" width="360"></p>
+<p align="center"><img src="https://github.com/gobuffalo/buffalo/blob/main/logo.svg" width="360"></p>
 
 <p align="center">
 <a href="https://godoc.org/github.com/gobuffalo/buffalo-heroku"><img src="https://godoc.org/github.com/gobuffalo/buffalo-heroku?status.svg" alt="GoDoc" /></a>
