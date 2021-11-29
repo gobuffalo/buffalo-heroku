@@ -3,11 +3,12 @@ package cmd
 import (
 	"context"
 
-	"github.com/gobuffalo/buffalo-heroku/genny/config"
-	"github.com/gobuffalo/genny"
-	"github.com/gobuffalo/gogen"
+	"github.com/gobuffalo/genny/v2"
+	"github.com/gobuffalo/genny/v2/gogen"
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
+
+	"github.com/gobuffalo/buffalo-heroku/genny/config"
 )
 
 var configOptions = struct {

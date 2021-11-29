@@ -7,9 +7,16 @@ import (
 	"github.com/spf13/cobra"
 )
 
+var Version = "v0.0.0-dev"
+
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
-	Use: "buffalo-heroku",
+	Use:     "buffalo-heroku",
+	Version: Version,
+	RunE: func(cmd *cobra.Command, args []string) error {
+		cmd.Usage()
+		return nil
+	},
 }
 
 // Execute adds all child commands to the root command and sets flags appropriately.

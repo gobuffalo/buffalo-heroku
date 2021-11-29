@@ -5,9 +5,10 @@ import (
 	"os"
 	"os/exec"
 
-	"github.com/gobuffalo/buffalo-heroku/heroku"
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
+
+	"github.com/gobuffalo/buffalo-heroku/heroku"
 )
 
 var destroyOptions = struct {
@@ -24,11 +25,10 @@ var destroyCmd = &cobra.Command{
 		if err != nil {
 			return errors.WithStack(err)
 		}
-		name := app.Name.String()
-		if name == "" {
+		if app.Name == "" {
 			return errors.New("this does not appear to be a Heroku application")
 		}
-		c := exec.Command("heroku", "destroy", "--confirm", app.Name.String())
+		c := exec.Command("heroku", "destroy", "--confirm", app.Name)
 		c.Stderr = os.Stderr
 		c.Stdout = os.Stdout
 		c.Stdin = os.Stdin

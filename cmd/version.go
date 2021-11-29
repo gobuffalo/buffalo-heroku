@@ -2,17 +2,18 @@ package cmd
 
 import (
 	"fmt"
+	"os/exec"
 
-	"github.com/gobuffalo/buffalo-heroku/heroku"
 	"github.com/spf13/cobra"
 )
 
 // versionCmd represents the version command
 var versionCmd = &cobra.Command{
 	Use:   "version",
-	Short: "current version of heroku plugin",
+	Short: "current version of heroku",
 	RunE: func(cmd *cobra.Command, args []string) error {
-		fmt.Println("heroku", heroku.Version)
+		o, _ := exec.Command("heroku", "--version").Output()
+		fmt.Println("heroku", string(o))
 		return nil
 	},
 }

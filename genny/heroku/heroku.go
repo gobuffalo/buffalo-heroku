@@ -9,12 +9,13 @@ import (
 	"runtime"
 	"strings"
 
+	"github.com/gobuffalo/genny/v2"
+	"github.com/gobuffalo/meta"
+	"github.com/pkg/errors"
+
 	"github.com/gobuffalo/buffalo-heroku/genny/config"
 	"github.com/gobuffalo/buffalo-heroku/heroku"
 	"github.com/gobuffalo/buffalo-heroku/internal/takeon/github.com/gobuffalo/x/randx"
-	"github.com/gobuffalo/genny"
-	"github.com/gobuffalo/meta"
-	"github.com/pkg/errors"
 )
 
 func New(opts *Options) (*genny.Group, error) {

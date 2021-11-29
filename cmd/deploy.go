@@ -4,9 +4,10 @@ import (
 	"os/exec"
 	"strings"
 
-	"github.com/gobuffalo/buffalo-heroku/heroku"
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
+
+	"github.com/gobuffalo/buffalo-heroku/heroku"
 )
 
 var deployOptions = struct {

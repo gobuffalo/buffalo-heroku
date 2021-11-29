@@ -6,12 +6,13 @@ import (
 	"os/exec"
 	"strings"
 
-	"github.com/gobuffalo/buffalo-heroku/genny/heroku"
-	her "github.com/gobuffalo/buffalo-heroku/heroku"
-	"github.com/gobuffalo/genny"
-	"github.com/gobuffalo/gogen"
+	"github.com/gobuffalo/genny/v2"
+	"github.com/gobuffalo/genny/v2/gogen"
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
+
+	"github.com/gobuffalo/buffalo-heroku/genny/heroku"
+	her "github.com/gobuffalo/buffalo-heroku/heroku"
 )
 
 var newOptions = struct {
